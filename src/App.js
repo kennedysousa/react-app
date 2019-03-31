@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
 
 class App extends Component {
-  render() {
+  
+    constructor() {
+        super();
+        this.state = {list: []};
+    }
+    
+    render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="navbar-brand">
+                    <img src={logo} width="30" height="30" className="d-inline-block align-top" alt=""></img>
+                    React
+                </div>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <Header/>
+                </div>
+            </nav>
+            <div className="container pt-4">
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        </div>
     );
   }
 }
